@@ -1,11 +1,24 @@
 import * as React from 'react';
 import { Col, Row } from 'react-grid-system';
 import { ItemsEntity } from '../../../Models';
-import '../../frontend.scss';
 import FlickrDataHelpers from '../../../Helpers/FlickrDataHelpers';
 
+import '../../frontend.scss';
+import './FlickrItemComponent.scss';
+
+/**
+ * FlickrItemComponent Component
+ *
+ * Component to display single Flickr item
+ *
+ * @prop {string} author author information
+ * @prop {Date} dateTaken time taken for the image
+ * @prop {string} link link to the full image
+ * @prop {MediaEntity} media thumbnail image
+ * @prop {string} tags data item tags
+ */
 function FlickrItemComponent({
-  media, author, dateTaken, tags, link,
+  author, dateTaken, link, media, tags,
 }: ItemsEntity) {
   return (
     <div className="data-item paper text-base-style">
