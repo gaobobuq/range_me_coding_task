@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`(Tags: RCT-001) Flickr Search Page Tests Check Flickr search page details using snapshot 1`] = `
+<div
+  className="flickr-search-page"
+>
+  <div
+    style={
+      Object {
+        "alignItems": "normal",
+        "display": "flex",
+        "flexDirection": "row",
+        "flexGrow": 0,
+        "flexShrink": 0,
+        "flexWrap": "wrap",
+        "justifyContent": "flex-start",
+        "marginLeft": -15,
+        "marginRight": -15,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "flexBasis": "100%",
+          "flexGrow": 0,
+          "flexShrink": 0,
+          "left": "auto",
+          "marginLeft": "0%",
+          "maxWidth": "100%",
+          "minHeight": 1,
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "position": "relative",
+          "right": "auto",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="search-box"
+      >
+        <img
+          alt="search-icon"
+          className="search-icon"
+          src="/search-icon.svg"
+        />
+        <input
+          className="input-search-keyword"
+          data-testid="input-search-keyword"
+          onChange={[Function]}
+          placeholder="Search by author, tag or date"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="loading-result"
+      data-testid="loading-result"
+    >
+      <span
+        className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+        role="progressbar"
+        style={
+          Object {
+            "height": 80,
+            "width": 80,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </span>
+      <div
+        className="loading-text"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+</div>
+`;
