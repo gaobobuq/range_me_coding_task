@@ -3,15 +3,10 @@
 type InteractionType = "click" | "inputText";
 type WaitType = "appear" | "disappear";
 
-class TestHelpers {
-    public static outputLog = (logMessage: string): void => {
-        console.log(logMessage);
-    }
-
+class ActionHelpers {
     public static interactions = async (page: Page, interactionType: InteractionType, selector: string, value?: string) => {
         switch (interactionType) {
             case "inputText":
-                TestHelpers.outputLog("input text");
                 await page.focus(selector);
                 await page.keyboard.type(value ?? "");
                 break;
@@ -40,4 +35,4 @@ class TestHelpers {
     }
 }
 
-export default TestHelpers;
+export default ActionHelpers;
