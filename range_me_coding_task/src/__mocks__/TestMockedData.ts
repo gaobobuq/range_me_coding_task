@@ -1,4 +1,4 @@
-import { ItemsRawData, JsonFlickrFeedRawData } from '../Models/DataFeedEntities';
+import { ItemsRawData, JsonFlickrFeedRawData } from '../Models/RawData';
 
 export const itemsEntityRawData: ItemsRawData = {
   title: 'IMG_2481',
