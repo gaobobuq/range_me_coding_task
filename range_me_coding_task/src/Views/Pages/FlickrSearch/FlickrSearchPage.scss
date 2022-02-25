@@ -1,0 +1,46 @@
+
+.flickr-search-page {
+  margin: auto;
+  max-width: 1000px;
+
+  .search-box {
+    margin: 20px;
+
+    .search-icon {
+      width: 35px;
+      vertical-align: bottom;
+      padding: 1px;
+      margin: 0 10px;
+    }
+
+    .input-search-keyword {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-color: gray;
+      padding: 10px;
+      font-size: 20px;
+      width: 350px;
+    }
+  }
+
+  .loading-result {
+    margin: auto;
+    margin-top: 100px;
+    width: 25%;
+
+    .loading-text {
+      font-size: 23px;
+      margin-top: 10px;
+    }
+  }
+
+  .no-result-found {
+    margin: auto;
+    width: 70%;
+
+    img {
+      width: 300px;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=The+Nautigal&display=swap');
+
+body {
+  * {
+    font-family: Roboto, serif;
+    box-sizing: border-box;
+  }
+}
+
+.pagination {
+  margin: auto;
+  width: 50%;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+.title {
+  font-size: 28px;
+}
+
+.text-base-style {
+  line-height: 2.2em;
+}
+
+.label {
+  font-size: 12px;
+  color: #474747;
+  line-height: 1.5em;
+}
+
+.paragraph {
+  font-size: 14px;
+  color: #717171;
+  line-height: 1.5em;
+}
+
+.paper {
+  padding: 30px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+.link {
+  font-size: 16px;
+  color: #00a9a4;
+  padding: 3px;
+  cursor: pointer;
+
+  &:hover {
+    color: #00d4d0;
+  }
+}
+
