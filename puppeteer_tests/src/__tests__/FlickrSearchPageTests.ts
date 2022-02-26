@@ -9,13 +9,19 @@ const assert = chai.assert;
 
 describe('Flickr Data Search Page Tests', () => {
     let page: Page;
+    let browser: any;
 
     beforeEach(async () => {
-        const browser = await puppeteer.launch({headless: false});
+        jest.setTimeout(60000);
+        browser = await puppeteer.launch({headless: false});
         page = await browser.newPage();
         const navigationPromise = page.waitForNavigation();
         await page.goto('http://localhost:3005/');
         await navigationPromise;
+    });
+
+    afterEach(async () => {
+        browser.close();
     });
 
     it(`Loaded search page without keyword should return first page with ${ITEM_COUNT_PER_PAGE} items`, async () => {
@@ -29,6 +35,7 @@ describe('Flickr Data Search Page Tests', () => {
 
     it('Search for one item by author name', async () => {
         await PageActionHelpers.inputKeywordAndWaitForResults(page, "abdulrazacksa");
+        await PageActionHelpers.waitUntilResultsLoaded(page);
 
         const elements = await page.$$('div[data-testid="author-name"]');
         assert.lengthOf(elements, 1);
@@ -39,6 +46,7 @@ describe('Flickr Data Search Page Tests', () => {
 
     it('Search Flickr data and return no results', async () => {
         await PageActionHelpers.inputKeywordAndWaitForResults(page, "abc");
+        await PageActionHelpers.waitUntilNoResultsMessage(page);
 
         const elements = await page.$$('div[data-testid="author-name"]');
         assert.lengthOf(elements, 0);
