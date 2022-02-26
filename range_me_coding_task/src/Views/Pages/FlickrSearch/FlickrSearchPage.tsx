@@ -24,15 +24,16 @@ function FlickrSearchPage() {
   const [isLoadingData, setIsLoadingData] = useState<boolean>(true);
 
   // search flickr data event
-  const fetchFlickrData = (keyword: string) => {
-    const paginatedFlickrData = APIs.fetchFlickrData(keyword, currentPageIndex, ITEM_COUNT_PER_PAGE);
+  const fetchFlickrData = async (keyword: string) => {
+    const paginatedFlickrData = await APIs.fetchFlickrData(keyword, currentPageIndex, ITEM_COUNT_PER_PAGE);
+
     setFlickrFeedData(paginatedFlickrData.jsonFlickrFeedEntity);
     setPageCount(paginatedFlickrData.pageCount);
     setIsLoadingData(false);
   };
 
   useEffect(() => {
-    fetchFlickrData('');
+    fetchFlickrData(searchKeyword);
   }, [currentPageIndex]);
 
   const debouncedSearch = useCallback(
@@ -81,7 +82,7 @@ function FlickrSearchPage() {
                 {flickrFeedData?.items?.length > 0 ? (
                   <div data-testid="flickr-data-items-wrapper" className="flickr-feed-items">
                     {flickrFeedData?.items?.map((item: ItemsEntity, index: number) => (
-                      <FlickrItemComponent key={item.title ?? `${index}`} {...item} />
+                      <FlickrItemComponent key={item.link + item.dateTaken} {...item} />
                     ))}
 
                     {
