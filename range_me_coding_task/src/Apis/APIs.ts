@@ -1,5 +1,7 @@
 import flickrSampleData from '../MockedData/FlickrSampleData';
 import { JsonFlickrFeedEntity } from '../Models';
+import axios from 'axios';
+import { JsonFlickrFeedRawData } from '../Models/RawData';
 
 /**
  * PaginatedFlickrData interface
@@ -23,25 +25,26 @@ export default class APIs {
    * @param currentPageIndex {number} current page index
    * @param itemCountPerPage {number} number of items displayed per page
    */
-  static fetchFlickrData = (searchKeyword: string, currentPageIndex: number, itemCountPerPage: number): PaginatedFlickrData => {
-    const filteredItems = flickrSampleData.items?.filter(e => {
-      return e.author?.includes(searchKeyword)
-            || e.tags?.includes(searchKeyword)
-            || (
-              e.date_taken && new Date(e.date_taken).toUTCString().includes(searchKeyword)
-            );
-    });
+  static fetchFlickrData = async (searchKeyword: string, currentPageIndex: number, itemCountPerPage: number) => {
+    const fetchDataUrl = `https://www.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=${searchKeyword}`;
 
-    const items = filteredItems ? filteredItems.slice((currentPageIndex - 1) * itemCountPerPage, currentPageIndex * itemCountPerPage) : [];
-    const parsedJsonFlickrFeedEntity = new JsonFlickrFeedEntity({
-      ...flickrSampleData,
-      items,
-    });
+    await axios.get<JsonFlickrFeedRawData>(fetchDataUrl)
+      .then(response => {
+        const filteredItems = response.data.items;
+        console.log('return data');
+        console.log(filteredItems);
 
-    return {
-      currentPageIndex: currentPageIndex,
-      pageCount: filteredItems ? Math.ceil(filteredItems.length / itemCountPerPage) : 1,
-      jsonFlickrFeedEntity: parsedJsonFlickrFeedEntity,
-    };
+        const items = filteredItems ? filteredItems.slice((currentPageIndex - 1) * itemCountPerPage, currentPageIndex * itemCountPerPage) : [];
+        const parsedJsonFlickrFeedEntity = new JsonFlickrFeedEntity({
+          ...flickrSampleData,
+          items,
+        });
+
+        return {
+          currentPageIndex: currentPageIndex,
+          pageCount: filteredItems ? Math.ceil(filteredItems.length / itemCountPerPage) : 1,
+          jsonFlickrFeedEntity: parsedJsonFlickrFeedEntity,
+        };
+      });
   };
 }
