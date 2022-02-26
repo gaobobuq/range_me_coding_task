@@ -25,7 +25,7 @@ const mockFetchFlickrDataHasPagination = () => {
   (APIs.fetchFlickrData as jest.Mock).mockReturnValue({
     currentPageIndex: 1,
     pageCount: 2,
-    jsonFlickrFeedEntity: new JsonFlickrFeedEntity(jsonFlickrFeedRawDataOneInstance),
+    jsonFlickrFeedEntity: new JsonFlickrFeedEntity(flickrSampleData),
   } as PaginatedFlickrData);
 };
 
@@ -98,8 +98,12 @@ describe('(Tags: RMCT-004 FlickrSearchPage) Flickr Search Page Tests', () => {
       <FlickrSearchPage />,
     );
 
-    const paginationComponent = wrapper.find('*[data-testid="pagination"]');
-    expect(paginationComponent.length).not.toBe(0);
+    // need to use timer to check after a short time, since initial isLoading state is true
+    setTimeout(() => {
+      wrapper.update();
+      const paginationComponent = wrapper.find('*[data-testid="pagination"]');
+      expect(paginationComponent.length).not.toBe(0);
+    }, 100);
   });
 
   it('Search result has no items', () => {
@@ -109,17 +113,11 @@ describe('(Tags: RMCT-004 FlickrSearchPage) Flickr Search Page Tests', () => {
       <FlickrSearchPage />,
     );
 
-    const noResultFoundComponent = wrapper.find('*[data-testid="no-result-found"]');
-    expect(noResultFoundComponent.length).toBe(1);
-  });
-
-  it('Check Flickr search page details using snapshot', () => {
-    mockFetchFlickrDataWith20Items();
-
-    const renderDetails = renderer
-      .create(<FlickrSearchPage />)
-      .toJSON();
-
-    expect(renderDetails).toMatchSnapshot();
+    // need to use timer to check after a short time, since initial isLoading state is true
+    setTimeout(() => {
+      wrapper.update();
+      const noResultFoundComponent = wrapper.find('*[data-testid="no-result-found"]');
+      expect(noResultFoundComponent.length).toBe(1);
+    }, 100);
   });
 });
