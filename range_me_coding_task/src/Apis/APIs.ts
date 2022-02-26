@@ -25,26 +25,22 @@ export default class APIs {
    * @param currentPageIndex {number} current page index
    * @param itemCountPerPage {number} number of items displayed per page
    */
-  static fetchFlickrData = async (searchKeyword: string, currentPageIndex: number, itemCountPerPage: number) => {
-    const fetchDataUrl = `https://www.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=${searchKeyword}`;
+  static fetchFlickrData = async (searchKeyword: string, currentPageIndex: number, itemCountPerPage: number): Promise<PaginatedFlickrData> => {
+    const fetchDataUrl = `https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tagmode=any&tags=${searchKeyword}`;
 
-    await axios.get<JsonFlickrFeedRawData>(fetchDataUrl)
-      .then(response => {
-        const filteredItems = response.data.items;
-        console.log('return data');
-        console.log(filteredItems);
+    const results = await axios.get<JsonFlickrFeedRawData>(fetchDataUrl);
+    const filteredItems = results.data.items;
 
-        const items = filteredItems ? filteredItems.slice((currentPageIndex - 1) * itemCountPerPage, currentPageIndex * itemCountPerPage) : [];
-        const parsedJsonFlickrFeedEntity = new JsonFlickrFeedEntity({
-          ...flickrSampleData,
-          items,
-        });
+    const items = filteredItems ? filteredItems.slice((currentPageIndex - 1) * itemCountPerPage, currentPageIndex * itemCountPerPage) : [];
+    const parsedJsonFlickrFeedEntity = new JsonFlickrFeedEntity({
+      ...flickrSampleData,
+      items,
+    });
 
-        return {
-          currentPageIndex: currentPageIndex,
-          pageCount: filteredItems ? Math.ceil(filteredItems.length / itemCountPerPage) : 1,
-          jsonFlickrFeedEntity: parsedJsonFlickrFeedEntity,
-        };
-      });
+    return {
+      currentPageIndex: currentPageIndex,
+      pageCount: filteredItems ? Math.ceil(filteredItems.length / itemCountPerPage) : 1,
+      jsonFlickrFeedEntity: parsedJsonFlickrFeedEntity,
+    };
   };
 }

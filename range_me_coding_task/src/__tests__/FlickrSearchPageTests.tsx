@@ -7,6 +7,7 @@ import flickrSampleData from '../MockedData/FlickrSampleData';
 import { JsonFlickrFeedEntity } from '../Models';
 import FlickrSearchPage from '../Views/Pages/FlickrSearch/FlickrSearchPage';
 import { jsonFlickrFeedRawDataNoItems, jsonFlickrFeedRawDataOneInstance } from '../__mocks__/TestMockedData';
+import { act } from '@testing-library/react';
 
 jest.mock('../Apis/APIs.ts');
 
@@ -25,7 +26,7 @@ const mockFetchFlickrDataHasPagination = () => {
   (APIs.fetchFlickrData as jest.Mock).mockReturnValue({
     currentPageIndex: 1,
     pageCount: 2,
-    jsonFlickrFeedEntity: new JsonFlickrFeedEntity(jsonFlickrFeedRawDataOneInstance),
+    jsonFlickrFeedEntity: new JsonFlickrFeedEntity(flickrSampleData),
   } as PaginatedFlickrData);
 };
 
@@ -52,33 +53,42 @@ describe('(Tags: RMCT-004 FlickrSearchPage) Flickr Search Page Tests', () => {
   /**
    * Test scenarios
    */
-  it('Flickr search page can be rendered', () => {
+  it('Flickr search page can be rendered', async () => {
     mockFetchFlickrDataHasPagination();
 
-    const wrapper = mount(
-      <FlickrSearchPage />,
-    );
+    let wrapper: ReactWrapper;
+    await act(async () => {
+      wrapper = mount(
+        <FlickrSearchPage />,
+      );
+    });
 
     expect(wrapper).not.toBeNull();
   });
 
-  it('One page should not have pagination', () => {
+  it('One page should not have pagination', async () => {
     mockFetchFlickrDataNoPagination();
 
-    const wrapper = mount(
-      <FlickrSearchPage />,
-    );
+    let wrapper: ReactWrapper;
+    await act(async () => {
+      wrapper = mount(
+        <FlickrSearchPage />,
+      );
+    });
 
     const paginationComponent = wrapper.find('*[data-testid="pagination"]');
     expect(paginationComponent.length).toBe(0);
   });
 
-  it('Data items can be displayed on the page', () => {
+  it('Data items can be displayed on the page', async () => {
     mockFetchFlickrDataWith20Items();
 
-    const wrapper = mount(
-      <FlickrSearchPage />,
-    );
+    let wrapper: ReactWrapper;
+    await act(async () => {
+      wrapper = mount(
+        <FlickrSearchPage />,
+      );
+    });
 
     const elements = wrapper.find('div[data-testid="author-name"]');
 
@@ -91,35 +101,37 @@ describe('(Tags: RMCT-004 FlickrSearchPage) Flickr Search Page Tests', () => {
     });
   });
 
-  it('More than one pages should have pagination', () => {
+  it('More than one pages should have pagination', async () => {
     mockFetchFlickrDataHasPagination();
 
-    const wrapper = mount(
-      <FlickrSearchPage />,
-    );
+    let wrapper: ReactWrapper;
+    await act(async () => {
+      wrapper = mount(
+        <FlickrSearchPage />,
+      );
+    });
 
+    // need to check in next tick, since initial isLoading state is true
+    await Promise.resolve();
+
+    wrapper.update();
     const paginationComponent = wrapper.find('*[data-testid="pagination"]');
     expect(paginationComponent.length).not.toBe(0);
   });
 
-  it('Search result has no items', () => {
+  it('Search result has no items', async () => {
     mockFetchFlickrDataHasNoItems();
 
-    const wrapper = mount(
-      <FlickrSearchPage />,
-    );
+    let wrapper: ReactWrapper;
+    await act(async () => {
+      wrapper = mount(
+        <FlickrSearchPage />,
+      );
+    });
 
+    // need to check in next tick, since initial isLoading state is true
+    wrapper.update();
     const noResultFoundComponent = wrapper.find('*[data-testid="no-result-found"]');
     expect(noResultFoundComponent.length).toBe(1);
-  });
-
-  it('Check Flickr search page details using snapshot', () => {
-    mockFetchFlickrDataWith20Items();
-
-    const renderDetails = renderer
-      .create(<FlickrSearchPage />)
-      .toJSON();
-
-    expect(renderDetails).toMatchSnapshot();
   });
 });

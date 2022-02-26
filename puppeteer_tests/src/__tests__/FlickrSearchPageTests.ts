@@ -7,6 +7,7 @@ const puppeteer = require('puppeteer');
 const chai = require('chai');
 
 const { assert } = chai;
+jest.setTimeout(60000);
 
 /**
  * Flickr data search page tests
@@ -16,7 +17,12 @@ describe('Flickr Data Search Page Tests', () => {
   let browser: any;
 
   beforeEach(async () => {
-    browser = await puppeteer.launch({ headless: HEADERLESS });
+    browser = await puppeteer.launch({
+      args: [
+        '--disable-web-security',
+      ],
+      headless: HEADERLESS
+    });
     page = await browser.newPage();
     const navigationPromise = page.waitForNavigation();
     await page.goto(APPLICATION_BASE_URL);
@@ -37,18 +43,18 @@ describe('Flickr Data Search Page Tests', () => {
     assert.lengthOf(elements, ITEM_COUNT_PER_PAGE);
   });
 
-  it('Search for one item by author name', async () => {
-    await PageActionHelpers.inputKeywordAndWaitForResults(page, 'abdulrazacksa');
+  it('Search by tag', async () => {
+    await PageActionHelpers.inputKeywordAndWaitForResults(page, 'bird');
     await PageActionHelpers.waitUntilResultsLoaded(page);
 
-    const elements = await page.$$('div[data-testid="author-name"]');
-    assert.lengthOf(elements, 1);
+    const elements = await page.$$('div[data-testid="tags"]');
+    assert.lengthOf(elements, ITEM_COUNT_PER_PAGE);
 
     await ActionHelpers.interactions(page, 'click', 'a[data-testid="link-to-full-image"]');
   });
 
   it('Search Flickr data and return no results', async () => {
-    await PageActionHelpers.inputKeywordAndWaitForResults(page, 'abc');
+    await PageActionHelpers.inputKeywordAndWaitForResults(page, 'This should not return anything');
     await PageActionHelpers.waitUntilNoResultsMessage(page);
 
     const elements = await page.$$('div[data-testid="author-name"]');
