@@ -8,14 +8,12 @@ import './FlickrItemComponent.scss';
 
 /**
  * FlickrItemComponent Component
- *
  * Component to display single Flickr item
- *
- * @prop {string} author author information
- * @prop {Date} dateTaken time taken for the image
- * @prop {string} link link to the full image
- * @prop {MediaEntity} media thumbnail image
- * @prop {string} tags data item tags
+ * @param author author information
+ * @param dateTaken time taken for the image
+ * @param link  link to the full image
+ * @param media thumbnail image
+ * @param tags data item tags
  */
 function FlickrItemComponent({
   author, dateTaken, link, media, tags,
