@@ -101,3 +101,309 @@ exports[`(Tags: RCT-001) FlickrItem Component Tests Check FlickrItem component d
   </div>
 </div>
 `;
+
+exports[`(Tags: RMCT-004 FlickrItem) Flickr Item Component Tests Check FlickrItem component details using snapshot 1`] = `
+<div
+  className="data-item paper text-base-style"
+>
+  <div
+    style={
+      Object {
+        "alignItems": "normal",
+        "display": "flex",
+        "flexDirection": "row",
+        "flexGrow": 0,
+        "flexShrink": 0,
+        "flexWrap": "wrap",
+        "justifyContent": "flex-start",
+        "marginLeft": -15,
+        "marginRight": -15,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "flexBasis": "33.333333333333336%",
+          "flexGrow": 0,
+          "flexShrink": 0,
+          "left": "auto",
+          "marginLeft": "0%",
+          "maxWidth": "33.333333333333336%",
+          "minHeight": 1,
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "position": "relative",
+          "right": "auto",
+          "width": "33.333333333333336%",
+        }
+      }
+    >
+      <img
+        alt="nobody@flickr.com (\\"micky the pixel\\")"
+        className="media-image"
+        onError={[Function]}
+        src="https://live.staticflickr.com/65535/51893643867_051d38f43e_m.jpg"
+      />
+    </div>
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "flexBasis": "66.66666666666667%",
+          "flexGrow": 0,
+          "flexShrink": 0,
+          "left": "auto",
+          "marginLeft": "0%",
+          "maxWidth": "66.66666666666667%",
+          "minHeight": 1,
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "position": "relative",
+          "right": "auto",
+          "width": "66.66666666666667%",
+        }
+      }
+    >
+      <div
+        className="paragraph author"
+        data-testid="author-name"
+      >
+        micky the pixel
+      </div>
+      <div
+        className="paragraph"
+        data-testid="author-email"
+      >
+        nobody@flickr.com
+      </div>
+      <div
+        className="label"
+        data-testid="date-taken"
+      >
+        Sat, 19 Feb 2022 20:08:25 GMT
+      </div>
+      <div
+        className="tags"
+        data-testid="tags"
+      >
+        buch book livre zeitschrift magazine verlagernstkeilsnachfolger diegartenlaube–illustriertesfamilienblatt diegartenlaube illustration wilhelmvonkaulbach reinekefuchs hinrichtung execution
+      </div>
+      <div>
+        <a
+          className="link"
+          data-testid="link-to-full-image"
+          href="https://www.flickr.com/photos/mickythepixel/51893643867/"
+        >
+          View Full Image
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`(Tags: RMCT-004) Flickr Item Component Tests Check FlickrItem component details using snapshot 1`] = `
+<div
+  className="data-item paper text-base-style"
+>
+  <div
+    style={
+      Object {
+        "alignItems": "normal",
+        "display": "flex",
+        "flexDirection": "row",
+        "flexGrow": 0,
+        "flexShrink": 0,
+        "flexWrap": "wrap",
+        "justifyContent": "flex-start",
+        "marginLeft": -15,
+        "marginRight": -15,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "flexBasis": "33.333333333333336%",
+          "flexGrow": 0,
+          "flexShrink": 0,
+          "left": "auto",
+          "marginLeft": "0%",
+          "maxWidth": "33.333333333333336%",
+          "minHeight": 1,
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "position": "relative",
+          "right": "auto",
+          "width": "33.333333333333336%",
+        }
+      }
+    >
+      <img
+        alt="nobody@flickr.com (\\"micky the pixel\\")"
+        className="media-image"
+        onError={[Function]}
+        src="https://live.staticflickr.com/65535/51893643867_051d38f43e_m.jpg"
+      />
+    </div>
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "flexBasis": "66.66666666666667%",
+          "flexGrow": 0,
+          "flexShrink": 0,
+          "left": "auto",
+          "marginLeft": "0%",
+          "maxWidth": "66.66666666666667%",
+          "minHeight": 1,
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "position": "relative",
+          "right": "auto",
+          "width": "66.66666666666667%",
+        }
+      }
+    >
+      <div
+        className="paragraph author"
+        data-testid="author-name"
+      >
+        micky the pixel
+      </div>
+      <div
+        className="paragraph"
+        data-testid="author-email"
+      >
+        nobody@flickr.com
+      </div>
+      <div
+        className="label"
+        data-testid="date-taken"
+      >
+        Sat, 19 Feb 2022 20:08:25 GMT
+      </div>
+      <div
+        className="tags"
+        data-testid="tags"
+      >
+        buch book livre zeitschrift magazine verlagernstkeilsnachfolger diegartenlaube–illustriertesfamilienblatt diegartenlaube illustration wilhelmvonkaulbach reinekefuchs hinrichtung execution
+      </div>
+      <div>
+        <a
+          className="link"
+          data-testid="link-to-full-image"
+          href="https://www.flickr.com/photos/mickythepixel/51893643867/"
+        >
+          View Full Image
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`(Tags: RMCT-004) FlickrItem Component Tests Check FlickrItem component details using snapshot 1`] = `
+<div
+  className="data-item paper text-base-style"
+>
+  <div
+    style={
+      Object {
+        "alignItems": "normal",
+        "display": "flex",
+        "flexDirection": "row",
+        "flexGrow": 0,
+        "flexShrink": 0,
+        "flexWrap": "wrap",
+        "justifyContent": "flex-start",
+        "marginLeft": -15,
+        "marginRight": -15,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "flexBasis": "33.333333333333336%",
+          "flexGrow": 0,
+          "flexShrink": 0,
+          "left": "auto",
+          "marginLeft": "0%",
+          "maxWidth": "33.333333333333336%",
+          "minHeight": 1,
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "position": "relative",
+          "right": "auto",
+          "width": "33.333333333333336%",
+        }
+      }
+    >
+      <img
+        alt="nobody@flickr.com (\\"micky the pixel\\")"
+        className="media-image"
+        onError={[Function]}
+        src="https://live.staticflickr.com/65535/51893643867_051d38f43e_m.jpg"
+      />
+    </div>
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "flexBasis": "66.66666666666667%",
+          "flexGrow": 0,
+          "flexShrink": 0,
+          "left": "auto",
+          "marginLeft": "0%",
+          "maxWidth": "66.66666666666667%",
+          "minHeight": 1,
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "position": "relative",
+          "right": "auto",
+          "width": "66.66666666666667%",
+        }
+      }
+    >
+      <div
+        className="paragraph author"
+        data-testid="author-name"
+      >
+        micky the pixel
+      </div>
+      <div
+        className="paragraph"
+        data-testid="author-email"
+      >
+        nobody@flickr.com
+      </div>
+      <div
+        className="label"
+        data-testid="date-taken"
+      >
+        Sat, 19 Feb 2022 20:08:25 GMT
+      </div>
+      <div
+        className="tags"
+        data-testid="tags"
+      >
+        buch book livre zeitschrift magazine verlagernstkeilsnachfolger diegartenlaube–illustriertesfamilienblatt diegartenlaube illustration wilhelmvonkaulbach reinekefuchs hinrichtung execution
+      </div>
+      <div>
+        <a
+          className="link"
+          data-testid="link-to-full-image"
+          href="https://www.flickr.com/photos/mickythepixel/51893643867/"
+        >
+          View Full Image
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
