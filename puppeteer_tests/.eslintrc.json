@@ -1,0 +1,71 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
+    },
+    "extends": ["plugin:react/recommended", "airbnb"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": ["react", "@typescript-eslint"],
+    "rules": {
+        // Base Rules
+        "arrow-parens": [2, "as-needed"],
+        "arrow-body-style": "off",
+        "class-methods-use-this": "off",
+        "consistent-return": "off",
+        "linebreak-style": "off",
+        "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+        "max-classes-per-file": "off",
+        "max-len": "off",
+        "no-confusing-arrow": "off",
+        "no-console": "off",
+        "no-extra-boolean-cast": "off",
+        "no-restricted-syntax": "off",
+        "no-param-reassign": ["error", { "props": false }],
+        "no-plusplus": "off", 
+        "no-shadow": "off",
+        "no-throw-literal": "off",
+        "no-underscore-dangle": "off",
+        "no-unused-vars": "off",
+        "no-use-before-define": "off",
+        "no-useless-constructor": "off",
+        "object-shorthand": "off",
+        "import/no-duplicates": "off",
+        "import/no-cycle": "off",
+        "import/order": "off",
+        "import/extensions": "off",
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+
+        // typescript rules
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-shadow": ["error"],
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+
+        // react rules
+        "jsx-a11y/img-redundant-alt": "warn",
+        "react/button-has-type": "off",
+        "react/require-default-props": "off",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-no-bind": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/prefer-stateless-function": "off",
+        "react/static-property-placement": "off",
+        "react/sort-comp": "off"
+    }
+}
