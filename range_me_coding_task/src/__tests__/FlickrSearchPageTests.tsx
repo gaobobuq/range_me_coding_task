@@ -5,11 +5,14 @@ import APIs, { PaginatedFlickrData } from '../Apis/APIs';
 import FlickrDataHelpers from '../Helpers/FlickrDataHelpers';
 import flickrSampleData from '../MockedData/FlickrSampleData';
 import { JsonFlickrFeedEntity } from '../Models';
-import FlickrSearchPage from "../Views/Pages/FlickrSearch/FlickrSearchPage";
+import FlickrSearchPage from '../Views/Pages/FlickrSearch/FlickrSearchPage';
 import { jsonFlickrFeedRawDataNoItems, jsonFlickrFeedRawDataOneInstance } from '../__mocks__/TestMockedData';
 
 jest.mock('../Apis/APIs.ts');
 
+/**
+ * API mockups
+ */
 const mockFetchFlickrDataNoPagination = () => {
   (APIs.fetchFlickrData as jest.Mock).mockReturnValue({
     currentPageIndex: 1,
@@ -42,7 +45,13 @@ const mockFetchFlickrDataWith20Items = () => {
   } as PaginatedFlickrData);
 };
 
-describe('(Tags: RCT-001) Flickr Search Page Tests', () => {
+/**
+ * Flickr Search Page Tests
+ */
+describe('(Tags: RMCT-004 FlickrSearchPage) Flickr Search Page Tests', () => {
+  /**
+   * Test scenarios
+   */
   it('Flickr search page can be rendered', () => {
     mockFetchFlickrDataHasPagination();
 

@@ -14,7 +14,6 @@ import './FlickrSearchPage.scss';
 
 /**
  * FlickrSearchPage Component
- *
  * Page to search and display Flickr items
  */
 function FlickrSearchPage() {

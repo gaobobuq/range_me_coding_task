@@ -7,7 +7,10 @@ import { ItemsEntity } from '../Models';
 import FlickrItemComponent from '../Views/Components/FlickrItem/FlickrItemComponent';
 import { itemsEntityRawData } from '../__mocks__/TestMockedData';
 
-describe('(Tags: RCT-001) FlickrItem Component Tests', () => {
+/**
+ * Flickr Item Component Tests
+ */
+describe('(Tags: RMCT-004 FlickrItem) Flickr Item Component Tests', () => {
   it('FlickrItem component can be rendered', () => {
     const itemsEntity = new ItemsEntity(itemsEntityRawData);
 
@@ -18,6 +21,9 @@ describe('(Tags: RCT-001) FlickrItem Component Tests', () => {
     expect(wrapper).not.toBeNull();
   });
 
+  /**
+   * Test scenarios
+   */
   it('FlickrItem component elements have expected values', () => {
     const itemsEntity = new ItemsEntity(itemsEntityRawData);
 

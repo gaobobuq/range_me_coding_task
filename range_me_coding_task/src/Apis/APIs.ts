@@ -1,6 +1,9 @@
 import flickrSampleData from '../MockedData/FlickrSampleData';
 import { JsonFlickrFeedEntity } from '../Models';
 
+/**
+ * PaginatedFlickrData interface
+ */
 export interface PaginatedFlickrData {
   pageCount: number;
   currentPageIndex: number;
@@ -15,9 +18,7 @@ export interface PaginatedFlickrData {
 export default class APIs {
   /**
    * fetch flickr data method
-   *
    * get request to fetch flickr data
-   *
    * @param searchKeyword {string} the input searchKeyword text
    * @param currentPageIndex {number} current page index
    * @param itemCountPerPage {number} number of items displayed per page
