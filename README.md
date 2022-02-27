@@ -20,8 +20,10 @@ The solution includes two projects, range_me_coding_task for React clientside an
 Several details have been considered during the development of this project.
 * Jest tests and end-to-end tests, end-to-end tests are included to ensure the feature is fully functional.
 * Responsive UX design.
-* Debounce search input, fetch data from api with 500ms delay after user stop typing, to reduce redundant api calls
+* Debounce search input is used for user typing event. The application fetches data from API with 500ms delay after the user stops typing, to reduce redundant API calls.
 * Pagination for displaying flickr data items.
+* When the photo is not available, a "no image available" placeholder photo will be displayed. (see screenshot below)
+* When there are no search results, a "no result found" placeholder image will be shown. (see screenshot below)
 
 ## Screenshots
 On a large size window:
@@ -35,3 +37,7 @@ On a small size window:
 When the search results are empty:
 <br/>
 ![images-not-found](readme/images-not-found.png "images-not-found")
+
+When photo is not available:
+<br/>
+![image-not-available](readme/image-not-available.png "image-not-available")
