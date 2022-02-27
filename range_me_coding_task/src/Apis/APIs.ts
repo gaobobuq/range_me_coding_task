@@ -26,7 +26,7 @@ export default class APIs {
    * @param itemCountPerPage {number} number of items displayed per page
    */
   static fetchFlickrData = async (searchKeyword: string, currentPageIndex: number, itemCountPerPage: number): Promise<PaginatedFlickrData> => {
-    const fetchDataUrl = `https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=${TextUtils.processTags(searchKeyword)}`;
+    const fetchDataUrl = `https://www.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=${TextUtils.processTags(searchKeyword)}`;
 
     const results = await axios.get<JsonFlickrFeedRawData>(fetchDataUrl);
     const filteredItems = results.data.items;

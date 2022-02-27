@@ -11,3 +11,15 @@ The solution includes two projects, range_me_coding_task for React clientside an
 * To run the clientside, please install dependencies using `yarn install` within the `range_me_coding_task` directory, and execute `yarn start`.
 * Run Jest tests using `yarn test`.
 * And to run the end to end tests, please install dependencies using `yarn install` within the `puppeteer_tests` directory, and execute `yarn test`
+* Since we are just building a frontend project to access an API with a different origin, so we need to install a chrome plugin to disable same-origin policy in chrome to make the project functional:
+  https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en
+  <br/>
+  (or other alternative plugins)
+
+## Screenshots
+
+![frontend-large](readme/frontend-large.png "frontend-large")
+
+![frontend-small](readme/frontend-small.png "frontend-small")
+
+![images-not-found](readme/images-not-found.png "images-not-found")
