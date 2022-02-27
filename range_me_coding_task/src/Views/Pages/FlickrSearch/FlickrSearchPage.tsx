@@ -59,7 +59,7 @@ function FlickrSearchPage() {
             <input
               data-testid="input-search-keyword"
               className="input-search-keyword"
-              placeholder="Search by author, tag or date"
+              placeholder="Search by tags"
               value={searchKeyword}
               onChange={event => {
                 searchKeywordChanged(event.target.value);

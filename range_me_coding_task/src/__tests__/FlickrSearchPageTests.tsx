@@ -3,10 +3,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import APIs, { PaginatedFlickrData } from '../Apis/APIs';
 import FlickrDataHelpers from '../Helpers/FlickrDataHelpers';
-import flickrSampleData from '../MockedData/FlickrSampleData';
 import { JsonFlickrFeedEntity } from '../Models';
 import FlickrSearchPage from '../Views/Pages/FlickrSearch/FlickrSearchPage';
-import { jsonFlickrFeedRawDataNoItems, jsonFlickrFeedRawDataOneInstance } from '../__mocks__/TestMockedData';
+import { jsonFlickrFeedRawData20Instances, jsonFlickrFeedRawDataNoItems, jsonFlickrFeedRawDataOneInstance } from '../__mocks__/TestMockedData';
 import { act } from '@testing-library/react';
 
 jest.mock('../Apis/APIs.ts');
@@ -26,7 +25,7 @@ const mockFetchFlickrDataHasPagination = () => {
   (APIs.fetchFlickrData as jest.Mock).mockReturnValue({
     currentPageIndex: 1,
     pageCount: 2,
-    jsonFlickrFeedEntity: new JsonFlickrFeedEntity(flickrSampleData),
+    jsonFlickrFeedEntity: new JsonFlickrFeedEntity(jsonFlickrFeedRawData20Instances),
   } as PaginatedFlickrData);
 };
 
@@ -42,7 +41,7 @@ const mockFetchFlickrDataWith20Items = () => {
   (APIs.fetchFlickrData as jest.Mock).mockReturnValue({
     currentPageIndex: 1,
     pageCount: 4,
-    jsonFlickrFeedEntity: new JsonFlickrFeedEntity(flickrSampleData),
+    jsonFlickrFeedEntity: new JsonFlickrFeedEntity(jsonFlickrFeedRawData20Instances),
   } as PaginatedFlickrData);
 };
 
@@ -93,7 +92,7 @@ describe('(Tags: RMCT-004 FlickrSearchPage) Flickr Search Page Tests', () => {
     const elements = wrapper.find('div[data-testid="author-name"]');
 
     // get mocked data items
-    const jsonFlickrFeed = new JsonFlickrFeedEntity(flickrSampleData);
+    const jsonFlickrFeed = new JsonFlickrFeedEntity(jsonFlickrFeedRawData20Instances);
 
     // for each data item, we check whether the author's name is displayed on the page by index order
     elements.forEach((element: ReactWrapper, index: number) => {

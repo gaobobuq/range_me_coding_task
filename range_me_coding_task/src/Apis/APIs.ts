@@ -1,7 +1,7 @@
-import flickrSampleData from '../MockedData/FlickrSampleData';
 import { JsonFlickrFeedEntity } from '../Models';
 import axios from 'axios';
 import { JsonFlickrFeedRawData } from '../Models/RawData';
+import TextUtils from '../Helpers/TextUtils';
 
 /**
  * PaginatedFlickrData interface
@@ -26,14 +26,14 @@ export default class APIs {
    * @param itemCountPerPage {number} number of items displayed per page
    */
   static fetchFlickrData = async (searchKeyword: string, currentPageIndex: number, itemCountPerPage: number): Promise<PaginatedFlickrData> => {
-    const fetchDataUrl = `https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tagmode=any&tags=${searchKeyword}`;
+    const fetchDataUrl = `https://www.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=${TextUtils.processTags(searchKeyword)}`;
 
     const results = await axios.get<JsonFlickrFeedRawData>(fetchDataUrl);
     const filteredItems = results.data.items;
 
     const items = filteredItems ? filteredItems.slice((currentPageIndex - 1) * itemCountPerPage, currentPageIndex * itemCountPerPage) : [];
     const parsedJsonFlickrFeedEntity = new JsonFlickrFeedEntity({
-      ...flickrSampleData,
+      ...results,
       items,
     });
 
