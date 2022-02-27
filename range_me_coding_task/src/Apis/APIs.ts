@@ -1,5 +1,5 @@
-import { JsonFlickrFeedEntity } from '../Models';
 import axios from 'axios';
+import { JsonFlickrFeedEntity } from '../Models';
 import { JsonFlickrFeedRawData } from '../Models/RawData';
 import TextUtils from '../Helpers/TextUtils';
 

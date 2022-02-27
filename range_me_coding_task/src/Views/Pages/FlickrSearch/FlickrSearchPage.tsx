@@ -1,7 +1,6 @@
-import { CircularProgress, Pagination } from '@mui/material';
-// @ts-ignore
-import debounce from 'lodash.debounce';
 import * as React from 'react';
+import debounce from 'lodash.debounce';
+import { CircularProgress, Pagination } from '@mui/material';
 import { useCallback, useEffect, useState } from 'react';
 import { Col, Row } from 'react-grid-system';
 import APIs from '../../../Apis/APIs';
