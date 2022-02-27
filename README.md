@@ -18,10 +18,13 @@ The solution includes two projects, range_me_coding_task for React clientside an
 
 ## Screenshots
 On a large size window:
+<br/>
 ![frontend-large](readme/frontend-large.png "frontend-large")
 
 On a small size window:
+<br/>
 ![frontend-small](readme/frontend-small.png "frontend-small")
 
 When the search results are empty:
+<br/>
 ![images-not-found](readme/images-not-found.png "images-not-found")
