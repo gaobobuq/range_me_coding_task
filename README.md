@@ -6,6 +6,11 @@ The project was built using React.<br>
 Tests were written using JEST and puppeteer.
 </p>
 
+## Contents
+- [Installation](#installation)
+- [Details Considered](#details-considered)
+- [Screenshots](#screenshots)
+
 ## Installation
 The solution includes two projects, range_me_coding_task for React clientside and puppeteer_tests for end to end testing.
 * To run the clientside, please install dependencies using `yarn install` within the `range_me_coding_task` directory, and execute `yarn start`.
@@ -16,7 +21,7 @@ The solution includes two projects, range_me_coding_task for React clientside an
   <br/>
   (or other alternative plugins)
 
-## Details
+## Details Considered
 Several details have been considered during the development of this project.
 * Jest tests and end-to-end tests, end-to-end tests are included to ensure the feature is fully functional.
 * Responsive UX design.
