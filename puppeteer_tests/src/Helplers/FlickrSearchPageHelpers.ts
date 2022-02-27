@@ -11,8 +11,8 @@ class PageActionHelpers {
    *
    * input keyword into search box
    *
-   * @param page
-   * @param keyword
+   * @param page target page
+   * @param keyword input search keyword
    */
   public static inputKeywordAndWaitForResults = async (page: Page, keyword: string) => {
     await ActionHelpers.interactions(page, 'inputText', 'input[data-testid="input-search-keyword"]', keyword);
@@ -23,7 +23,7 @@ class PageActionHelpers {
    *
    * wait until the items appear on the page
    *
-   * @param page
+   * @param page target page
    */
   public static waitUntilResultsLoaded = async (page: Page) => {
     await ActionHelpers.waitUntil(page, 'disappear', 'div[data-testid="loading-result"]');
@@ -37,7 +37,7 @@ class PageActionHelpers {
    *
    * wait until "no search results" message appears
    *
-   * @param page
+   * @param page target page
    */
   public static waitUntilNoResultsMessage = async (page: Page) => {
     await ActionHelpers.waitUntil(page, 'appear', 'div[data-testid="no-result-found"]');

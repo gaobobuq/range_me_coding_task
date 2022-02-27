@@ -1,20 +1,17 @@
-import { Page } from 'puppeteer';
-import PageActionHelpers from '../Helplers/FlickrSearchPageHelpers';
+import chai from 'chai';
+import puppeteer, {Browser, Page} from 'puppeteer';
 import ActionHelpers from '../Helplers/ActionHelpers';
+import PageActionHelpers from '../Helplers/FlickrSearchPageHelpers';
 import {APPLICATION_BASE_URL, HEADERLESS, ITEM_COUNT_PER_PAGE} from '../Constants';
-
-const puppeteer = require('puppeteer');
-const chai = require('chai');
-
-const { assert } = chai;
-jest.setTimeout(60000);
 
 /**
  * Flickr data search page tests
  */
 describe('Flickr Data Search Page Tests', () => {
   let page: Page;
-  let browser: any;
+  let browser: Browser;
+  const { assert } = chai;
+  jest.setTimeout(60000);
 
   beforeEach(async () => {
     browser = await puppeteer.launch({
@@ -30,7 +27,7 @@ describe('Flickr Data Search Page Tests', () => {
   });
 
   afterEach(async () => {
-    browser.close();
+    await browser.close();
   });
 
   /**
