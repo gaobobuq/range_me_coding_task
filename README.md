@@ -16,6 +16,13 @@ The solution includes two projects, range_me_coding_task for React clientside an
   <br/>
   (or other alternative plugins)
 
+## Details
+Several details have been considered during the development of this project.
+* Jest tests and end-to-end tests, end-to-end tests are included to ensure the feature is fully functional.
+* Responsive UX design.
+* Debounce search input, fetch data from api with 500ms delay after user stop typing, to reduce redundant api calls
+* Pagination for displaying flickr data items.
+
 ## Screenshots
 On a large size window:
 <br/>
